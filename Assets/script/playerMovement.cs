@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 10f;
     private float gravityScale = 20f;
-    public float jumpForce = 2f;
+    public float jumpForce = 10f;
     private Rigidbody rb;
     private Vector3 movement;
     private bool isGrounded = true;
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Jump()
     {
-        rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+        rb.AddForce(new Vector3(0, jumpForce*rb.mass, 0), ForceMode.Impulse);
         isGrounded = false;
     }
     void OnCollisionEnter(Collision collision)
